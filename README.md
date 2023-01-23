@@ -1,2 +1,2 @@
 # python-networking-example
-A UDP networking example using python
+This is a client/server networking example using UDP made in Python 3.10.6
