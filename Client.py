@@ -4,10 +4,10 @@ from ClientNetworking import Networking
 #Setup networking
 Net = Networking()
 Net.Connect()
-Net.DataToSend = "Test!"
+Net.DataToSend = "Hello server!"
 
 #Send data to server
-Net.Send()
+Net.Send(Net.DataToSend)
 
 #Wait for response from server
 Net.WaitForData()
