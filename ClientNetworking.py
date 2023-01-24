@@ -22,10 +22,11 @@ class Networking:
         except:
             pass
     
-    def Send(self):
+    def Send(self, data):
         #Attempt to send data to server
         try:
-            self.Client.sendto(Networking.DataToSend.encode(), self.Server)
+            self.data = data
+            self.Client.sendto(self.data.encode(), self.Server)
         except:
             pass
     
