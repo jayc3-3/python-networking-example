@@ -17,5 +17,5 @@ print("Data recieved from client: " + RecievedDataStr)
 print("Address of client who sent data: " + ClientAddrStr)
 
 #Send response message to client
-DataToSend = "Hello Client!"
+DataToSend = "Hello client!"
 Server.sendto(DataToSend.encode(), ClientAddr)
