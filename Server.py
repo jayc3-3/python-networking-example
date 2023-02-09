@@ -1,21 +1,16 @@
-#Import modules
-import socket
+#Import "Networking" class from ServerNetworking.py
+from ServerNetworking import Networking
 
-#Setup server
-ServerHost = "127.0.0.1"
-ServerPort = 10957
-Server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-Server.bind((ServerHost, ServerPort))
+#Define shorter name for "Networking" class
+Net = Networking()
 
-#Wait for client to send data
-RecievedData, ClientAddr = Server.recvfrom(1024)
-RecievedDataStr = str(RecievedData, 'utf-8')
-ClientAddrStr = str(ClientAddr)
+#Wait for data from client
+Net.Recieve()
 
-#Print the recieved data from the client
-print("Data recieved from client: " + RecievedDataStr)
-print("Address of client who sent data: " + ClientAddrStr)
+#Print recieved data from client, as well as the address it was send from
+print("Data recieved from client: " + Net.RecievedDataStr)
+print("Address of client who sent data: " + Net.ClientStr)
 
-#Send response message to client
-DataToSend = "Hello client!"
-Server.sendto(DataToSend.encode(), ClientAddr)
+#Send response to client
+Net.DataToSend = input("Data to send to client: ")
+Net.Send(Net.DataToSend)
