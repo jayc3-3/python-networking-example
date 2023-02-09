@@ -1,16 +1,18 @@
 #Import the "Networking" class from ClientNetworking.py
 from ClientNetworking import Networking
 
-#Setup networking
+#Define a shorter name for the class
 Net = Networking()
+
+#Connect to the server
 Net.Connect()
-Net.DataToSend = "Hello server!"
 
 #Send data to server
+Net.DataToSend = input("Data to send to server: ")
 Net.Send(Net.DataToSend)
 
-#Wait for response from server
+#Wait for data from server
 Net.WaitForData()
 
-#Print response from server
-print("Data recieved: " + Net.RecievedDataStr)
+#Print recieved data from server
+print("Data recieved from server: " + Net.RecievedDataStr)
