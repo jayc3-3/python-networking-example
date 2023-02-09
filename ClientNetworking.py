@@ -52,6 +52,7 @@ class Networking():
         try:
             #Wait for data from server
             RecievedData, Server = self.Client.recvfrom(1024)
+            del(Server)
             Networking.RecievedDataStr = str(RecievedData, 'utf-8')
         except:
             #Print error message if the connection times out
